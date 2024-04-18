@@ -11,6 +11,19 @@ namespace EF_Core_SQLITE
 
         public void addPrayerItem(PrayerItem prayerItem) { 
             _dbContext.Add(prayerItem);
+            _dbContext.SaveChanges();
+        }
+
+        public void deletePrayerItem(PrayerItem prayerItem)
+        {
+            _dbContext.Remove(prayerItem);
+            _dbContext.SaveChanges();
+        }
+
+        public PrayerItem GetPrayerItem(int id)
+        {
+            PrayerItem prayerItem = _dbContext.PrayerItems.Find(id);
+            return prayerItem;
         }
 
         public void getPrayerItems()

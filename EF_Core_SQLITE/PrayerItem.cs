@@ -8,5 +8,8 @@
         public DateTime CreateDate { get; set; }
         public bool IsHistory { get; set; }
 
+        override public string ToString() {
+            return $"{Id} - {Name} - {Description} - {CreateDate} - {IsHistory}";
+        }
     }
 }

@@ -13,10 +13,19 @@ namespace PrayerJournal
             PrayerItemContext prayerItemContext = new PrayerItemContext();
             PrayerItemList list = new PrayerItemList(prayerItemContext);
             list.addPrayerItem(item);
-            prayerItemContext.SaveChanges();
-
+            //prayerItemContext.SaveChanges();
 
             list.getPrayerItems();
+
+
+            Console.WriteLine("Enter id to delete");
+            string id_to_delete = Console.ReadLine();
+            Int32.TryParse(id_to_delete, out int id);
+
+            PrayerItem item1 = list.GetPrayerItem(id);
+            Console.WriteLine(item1.ToString());
+            list.deletePrayerItem(item1);
+
 
         }
     }
